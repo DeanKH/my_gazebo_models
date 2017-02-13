@@ -2,66 +2,66 @@
 
 <sdf version="1.5">
 	<model name="refrigerator_kbys">
-    <!-- <joint name="world_joint" type="revolute"> -->
-    <!--   <child>frame</child> -->
-    <!--   <parent>world</parent> -->
-    <!--   <axis> -->
-    <!--     <limit> -->
-    <!--       <lower>0</lower> -->
-    <!--       <upper>0</upper> -->
-    <!--     </limit> -->
-    <!--     <xyz>0 1 0</xyz> -->
-    <!--     <dynamics> -->
-    <!--       <damping>1.0</damping> -->
-    <!--     </dynamics> -->
-    <!--     <use_parent_model_frame>true</use_parent_model_frame> -->
-    <!--   </axis> -->
-    <!--   <physics> -->
-    <!--     <ode> -->
-    <!--       <cfm_damping>1</cfm_damping> -->
-    <!--     </ode> -->
-    <!--   </physics> -->
-    <!-- </joint> -->
+    <joint name="world_joint" type="fixed">
+      <child>frame</child>
+      <parent>world</parent>
+      <!-- <axis> -->
+      <!--   <limit> -->
+      <!--     <lower>0</lower> -->
+      <!--     <upper>0</upper> -->
+      <!--   </limit> -->
+      <!--   <xyz>0 1 0</xyz> -->
+      <!--   <dynamics> -->
+      <!--     <damping>1.0</damping> -->
+      <!--   </dynamics> -->
+      <!--   <use_parent_model_frame>true</use_parent_model_frame> -->
+      <!-- </axis> -->
+      <physics>
+        <ode>
+          <cfm_damping>1</cfm_damping>
+        </ode>
+      </physics>
+    </joint>
+
 	<link name="frame">
 		<pose>0 0 0 0 0 0</pose>
 
 		<inertial>
-			<pose> -0.025145 -0.03429 1.0541 0 0 0</pose>
-			<mass>19</mass>
-			
+			<pose>0 0 0 0 0 0</pose>
+			<mass>100</mass>
 			<inertia>
-				<ixx>7.044583222633334</ixx>
+				<ixx>70</ixx>
 				<ixy>0</ixy>
 				<ixz>0</ixz>
-				<iyy>7.041140846491667</iyy>
+				<iyy>70</iyy>
 				<iyz>0</iyz>
-				<izz>0.011451142458333334</izz>
+				<izz>40</izz>
 			</inertia>
 		</inertial>
 
-      <collision name="collision_1">
-        <pose>0 0 0 0 0 0</pose>
-        <geometry>
-          <mesh>
-						<uri>model://refrigerator_kbys/meshes/frig_base.stl</uri>
-          </mesh>
-        </geometry>
-      </collision>
+		<collision name="collision_1">
+			<pose>0 0 0 0 0 0</pose>
+			<geometry>
+				<mesh>
+					<uri>model://refrigerator_kbys/meshes/frig_base.stl</uri>
+				</mesh>
+			</geometry>
+		</collision>
 
-      <visual name="visual">
-        <pose>0 0 0 0 0 0</pose>
-        <geometry>
-          <mesh>
-						<uri>model://refrigerator_kbys/meshes/frig_base.stl</uri>
-          </mesh>
-        </geometry>
-        <material>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/White</name>
-          </script>
-        </material>
-      </visual>
+		<visual name="visual">
+			<pose>0 0 0 0 0 0</pose>
+			<geometry>
+				<mesh>
+					<uri>model://refrigerator_kbys/meshes/frig_base.stl</uri>
+				</mesh>
+			</geometry>
+			<material>
+				<script>
+					<uri>file://media/materials/scripts/gazebo.material</uri>
+					<name>Gazebo/White</name>
+				</script>
+			</material>
+		</visual>
 	</link>
 
 
@@ -70,42 +70,41 @@
 		<pose>-0.2125 0.2475 0.755 0 0 0</pose>
 
 		<inertial>
-			<pose> -0.025145 -0.03429 1.0541 0 0 0</pose>
-			<mass>19</mass>
-
+			<pose> 0.2 -0.03 0.36 0 0 0</pose>
+			<mass>1</mass>
 			<inertia>
-				<ixx>7.044583222633334</ixx>
+				<ixx>0.04</ixx>
 				<ixy>0</ixy>
 				<ixz>0</ixz>
-				<iyy>7.041140846491667</iyy>
-				<iyz>0</iyz>
-				<izz>0.011451142458333334</izz>
+				<iyy>0.06</iyy>
+				<iyz>0.0</iyz>
+				<izz>0.02</izz>
 			</inertia>
 		</inertial>
 
-      <collision name="collision_2">
-        <pose>0 0 0 0 0 0</pose>
-        <geometry>
-          <mesh>
-							<uri>model://refrigerator_kbys/meshes/frig_door.stl</uri>
-          </mesh>
-        </geometry>
-      </collision>
+		<collision name="collision_2">
+			<pose>0 0 0 0 0 0</pose>
+			<geometry>
+				<mesh>
+						<uri>model://refrigerator_kbys/meshes/frig_door.stl</uri>
+				</mesh>
+			</geometry>
+		</collision>
 
-      <visual name="visual2">
-        <pose>0 0 0 0 0 0</pose>
-        <geometry>
-          <mesh>
-							<uri>model://refrigerator_kbys/meshes/frig_door.stl</uri>
-          </mesh>
-        </geometry>
-        <material>
-          <script>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-            <name>Gazebo/White</name>
-          </script>
-        </material>
-      </visual>
+		<visual name="visual2">
+			<pose>0 0 0 0 0 0</pose>
+			<geometry>
+				<mesh>
+						<uri>model://refrigerator_kbys/meshes/frig_door.stl</uri>
+				</mesh>
+			</geometry>
+			<material>
+				<script>
+					<uri>file://media/materials/scripts/gazebo.material</uri>
+					<name>Gazebo/White</name>
+				</script>
+			</material>
+		</visual>
 	</link>
 
     <joint name="hinge" type="revolute">
@@ -118,8 +117,8 @@
           <upper>1.58</upper>
         </limit>
         <dynamics>
-          <damping>1.0</damping>
-          <friction>1.0</friction>
+          <damping>0.1</damping>
+          <friction>0.0</friction>
         </dynamics>
         <use_parent_model_frame>true</use_parent_model_frame>
       </axis>
