@@ -1,0 +1,139 @@
+<?xml version="1.0" ?>
+
+<sdf version="1.5">
+	<model name="refrigerator_kbys">
+	
+	<link name="hinge_base">
+		<pose>0 0 0 0 0 0</pose>
+	</link>
+
+	<joint name="hinge_base2body_base" type="fixed">
+		<parent>hinge_base</parent>
+		<child>body_base</child>
+		<!-- <axis> -->
+		<!-- 	<xyz>0 0 0</xyz> -->
+		<!-- 	<limit> -->
+		<!-- 		<lower>0</lower> -->
+		<!-- 		<upper>0</upper> -->
+		<!-- 	</limit> -->
+		<!-- 	<dynamics> -->
+		<!-- 		<damping>0.1</damping> -->
+		<!-- 		<friction>0.0</friction> -->
+		<!-- 	</dynamics> -->
+		<!-- 	<use_parent_model_frame>true</use_parent_model_frame> -->
+		<!-- </axis> -->
+		<!-- <physics> -->
+		<!-- 	<ode> -->
+		<!-- 		<cfm_damping>1</cfm_damping> -->
+		<!-- 	</ode> -->
+		<!-- </physics> -->
+	</joint>
+
+	<link name="body_base">
+		<pose>0.2125 -0.2475 -0.755 0 0 0</pose>
+
+		<inertial>
+			<pose>0 0 0 0 0 0</pose>
+			<mass>100</mass>
+			<inertia>
+				<ixx>70</ixx>
+				<ixy>0</ixy>
+				<ixz>0</ixz>
+				<iyy>70</iyy>
+				<iyz>0</iyz>
+				<izz>40</izz>
+			</inertia>
+		</inertial>
+
+		<collision name="collision_1">
+			<pose>0 0 0 0 0 0</pose>
+			<geometry>
+				<mesh>
+					<uri>model://refrigerator_kbys/meshes/frig_base.stl</uri>
+				</mesh>
+			</geometry>
+		</collision>
+
+		<visual name="visual">
+			<pose>0 0 0 0 0 0</pose>
+			<geometry>
+				<mesh>
+					<uri>model://refrigerator_kbys/meshes/frig_base.stl</uri>
+				</mesh>
+			</geometry>
+			<material>
+				<script>
+					<uri>file://media/materials/scripts/gazebo.material</uri>
+					<name>Gazebo/White</name>
+				</script>
+			</material>
+		</visual>
+	</link>
+
+
+
+	<link name="door">
+		<pose>0 0 0 0 0 0</pose>
+
+		<inertial>
+			<pose> 0.2 -0.03 0.36 0 0 0</pose>
+			<mass>1</mass>
+			<inertia>
+				<ixx>0.04</ixx>
+				<ixy>0</ixy>
+				<ixz>0</ixz>
+				<iyy>0.06</iyy>
+				<iyz>0.0</iyz>
+				<izz>0.02</izz>
+			</inertia>
+		</inertial>
+
+		<collision name="collision_2">
+			<pose>0 0 0 0 0 0</pose>
+			<geometry>
+				<mesh>
+						<uri>model://refrigerator_kbys/meshes/frig_door.stl</uri>
+				</mesh>
+			</geometry>
+		</collision>
+
+		<visual name="visual2">
+			<pose>0 0 0 0 0 0</pose>
+			<geometry>
+				<mesh>
+						<uri>model://refrigerator_kbys/meshes/frig_door.stl</uri>
+				</mesh>
+			</geometry>
+			<material>
+				<script>
+					<uri>file://media/materials/scripts/gazebo.material</uri>
+					<name>Gazebo/White</name>
+				</script>
+			</material>
+		</visual>
+	</link>
+
+    <joint name="hinge_base2door" type="revolute">
+      <parent>hinge_base</parent>
+      <child>door</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>1.58</upper>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0.0</friction>
+        </dynamics>
+        <use_parent_model_frame>true</use_parent_model_frame>
+      </axis>
+      <physics>
+        <ode>
+          <cfm_damping>1</cfm_damping>
+        </ode>
+      </physics>
+    </joint>
+
+	</model>
+</sdf>
