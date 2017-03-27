@@ -2,9 +2,9 @@
 
 <sdf version="1.5">
 	<model name="refrigerator_kbys">
-    <joint name="world_joint" type="fixed">
-      <child>frame</child>
-      <parent>world</parent>
+    <!-- <joint name="world_joint" type="fixed"> -->
+    <!--   <child>frame</child> -->
+    <!--   <parent>world</parent> -->
       <!-- <axis> -->
       <!--   <limit> -->
       <!--     <lower>0</lower> -->
@@ -16,12 +16,12 @@
       <!--   </dynamics> -->
       <!--   <use_parent_model_frame>true</use_parent_model_frame> -->
       <!-- </axis> -->
-      <physics>
-        <ode>
-          <cfm_damping>1</cfm_damping>
-        </ode>
-      </physics>
-    </joint>
+    <!--   <physics> -->
+    <!--     <ode> -->
+    <!--       <cfm_damping>1</cfm_damping> -->
+    <!--     </ode> -->
+    <!--   </physics> -->
+    <!-- </joint> -->
 
 	<link name="frame">
 		<pose>0 0 0 0 0 0</pose>
